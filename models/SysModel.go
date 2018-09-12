@@ -22,6 +22,7 @@ type Sys struct {
 	DirtyWord         string `orm:"size(2048);default();column(DirtyWord)"`              //不良信息关键字
 	TimeExpireRelate  int    `orm:"default(604800);column(TimeExpireRelate)"`            //相关资源过期更新的时间周期，0表示关闭相关资源
 	TimeExpireHotspot int    `orm:"default(604800);column(TimeExpireHotspot)"`           //热门文档的时间范围
+	MobileOn          bool   `orm:"default(true);column(MobileOn)"`                      //是否开启移动端
 	TplMobile         string `orm:"default(default);column(TplMobile)"`                  //手机模板
 	TplComputer       string `orm:"default(default);column(TplComputer)"`                //电脑端模板
 	TplAdmin          string `orm:"default(default);column(TplAdmin)"`                   //后台模板
@@ -32,13 +33,13 @@ type Sys struct {
 	PreviewPage       int    `orm:"default(50);column(PreviewPage)"`                     //文档共预览的最大页数，0表示不限制
 	Trends            string `orm:"default();column(Trends)"`                            //文库动态，填写文档的id
 	HomeCates         string `orm:"default();column(HomeCates);size(50)"`                //首页分类，填写频道ids
-	IsCloseReg        bool   `orm:"default(false);column(IsCloseReg)"`                   //是否关闭注册
 	FreeDay           int    `orm:"default(7);column(FreeDay)"`                          //文档免费下载时长。即上次下载扣除金币后多长时间后下载需要收费。时间单位为天
 	Question          string `orm:"default(DocHub文库的中文名是？);column(Question)"`            //评论问答问题
 	Answer            string `orm:"default(多哈);column(Answer)"`                          //评论问答的问题
 	CoinReg           int    `orm:"column(CoinReg);default(10)"`                         //用户注册奖励金币
 	Watermark         string `orm:"column(Watermark);default()"`                         //水印文案
 	ReportReasons     string `orm:"column(ReportReasons);default();size(2048)"`          //举报原因
+	IsCloseReg        bool   `orm:"default(false);column(IsCloseReg)"`                   //是否关闭注册
 	//Price             int    `orm:"default(1);column(Price)"`                            //会员下载一篇文档需要的最大金币【会员在上传分享文档时允许设置的最大金币上限】
 }
 
